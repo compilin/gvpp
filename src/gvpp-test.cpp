@@ -25,5 +25,5 @@ int main() {
     sg.set(AttrType::NODE, "fillcolor", "lightblue");
     sg.set(AttrType::NODE, "shape", "oval");
     cout << g;
-    renderToFile(g, "x11");
+    renderToFile(g, "dot", "x11");
 }

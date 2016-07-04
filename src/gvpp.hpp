@@ -207,9 +207,9 @@ namespace gvpp {
     template<class chartype>
     ostreamtype  &operator<<(ostreamtype&, const GraphT&);
     template<class chartype>
-    int renderToFile(GraphT &g, std::string format, std::string file = "");
+    int renderToFile(GraphT &g, std::string layout, std::string format, std::string file = "");
     template<class chartype>
-    inline int renderToScreen(GraphT &g) { return renderToFile(g, "x11"); }
+    inline int renderToScreen(GraphT &g, std::string layout) { return renderToFile(g, layout, "x11"); }
 
     #undef ElementT
     #undef AbstractGraphT

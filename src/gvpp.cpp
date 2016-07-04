@@ -197,11 +197,11 @@ namespace gvpp {
     }
 
     template<class chartype>
-    int renderToFile(GraphI &g, std::string format, std::string file) {
+    int renderToFile(GraphI &g, string layout, string format, string file) {
         static const char *GUIFormats[] = {"x11", "xlib", "gtk"};
         static const locale loc;
         char *frmt = new char[format.length()+1];
-        // Convert to lowercase narrow character string
+        // Convert to lowercase
         for (size_t i = 0; i < format.length(); i ++)
             frmt[i] = use_facet<ctype<chartype>>(loc).tolower(format[i]);
         frmt[format.length()] = '\0';
@@ -224,7 +224,7 @@ namespace gvpp {
 
         string buf = toCharString(stream.str());
 
-        auto cmd = string("dot ")+ file +" -T"+ format;
+        auto cmd = string("dot ")+ file +" -T"+ format+ " -K"+ layout;
         FILE *fd = popen(cmd.c_str(), "w");
         fwrite(buf.c_str(), sizeof(chartype), buf.length(), fd);
         fflush(fd);
@@ -240,7 +240,7 @@ namespace gvpp {
     template basic_ostream<char> &operator<<
         (basic_ostream<char> &os, const Graph<char> &g);
     template int renderToFile
-        (Graph<char> &g, std::string format, std::string file = "");
+        (Graph<char> &g, string layout, string format, string file = "");
 
     template class AbstractGraph<wchar_t>;
     template class Graph<wchar_t>;
@@ -251,5 +251,5 @@ namespace gvpp {
     template basic_ostream<wchar_t> &operator<<
         (basic_ostream<wchar_t> &os, const Graph<wchar_t> &g);
     template int renderToFile
-        (Graph<wchar_t> &g, std::string format, std::string file = "");
+        (Graph<wchar_t> &g, string layout, string format, std::string file = "");
 }
