@@ -9,6 +9,8 @@
 #include <algorithm>
 #define CHECK_CALL(CODE) if (!(CODE)) throw runtime_error("Call to 'CODE' failed")
 
+#define ostreamtype std::basic_ostream<chartype>
+#define strtype std::basic_string<chartype>
 #define ElementI Element<chartype>
 #define AbstractGraphI AbstractGraph<chartype>
 #define GraphI Graph<chartype>

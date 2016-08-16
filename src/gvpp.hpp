@@ -210,11 +210,14 @@ namespace gvpp {
     int renderToFile(GraphT &g, std::string layout, std::string format, std::string file = "");
     template<class chartype>
     inline int renderToScreen(GraphT &g, std::string layout) { return renderToFile(g, layout, "x11"); }
-
-    #undef ElementT
-    #undef AbstractGraphT
-    #undef GraphT
-    #undef SubGraphT
-    #undef NodeT
-    #undef EdgeT
 }
+
+#undef ElementT
+#undef AbstractGraphT
+#undef GraphT
+#undef SubGraphT
+#undef NodeT
+#undef EdgeT
+#undef ostreamtype
+#undef strtype
+
