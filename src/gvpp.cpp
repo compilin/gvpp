@@ -150,24 +150,28 @@ namespace gvpp {
     template<class chartype>
     const GvAttributesI &AbstractGraphI::getAttrsT(AttrType t) const {
         switch(t) {
-            case AttrType::NODE:
+        case AttrType::NODE:
             return NAttrs;
-            case AttrType::EDGE:
+        case AttrType::EDGE:
             return EAttrs;
-            case AttrType::GRAPH:
+        case AttrType::GRAPH:
             return GAttrs;
+        default:
+            __builtin_unreachable();
         }
     }
 
     template<class chartype>
     GvAttributesI &AbstractGraphI::getAttrsT(AttrType t) {
         switch(t) {
-            case AttrType::NODE:
+        case AttrType::NODE:
             return NAttrs;
-            case AttrType::EDGE:
+        case AttrType::EDGE:
             return EAttrs;
-            case AttrType::GRAPH:
+        case AttrType::GRAPH:
             return GAttrs;
+        default:
+            __builtin_unreachable();
         }
     }
 
