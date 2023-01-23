@@ -92,7 +92,7 @@ namespace gvpp {
     }
 
     template<class chartype>
-    AbstractGraphI::~AbstractGraphI() {
+    AbstractGraphI::~AbstractGraph() {
         for (auto e : this->elements)
             delete e;
     }
